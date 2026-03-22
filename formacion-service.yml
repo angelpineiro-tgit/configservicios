@@ -5,10 +5,17 @@ spring:
 server:
   port: 0
 
-eureka:
+eureka: 
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetchRegistry: true
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    hostname: localhost
+    instance-id: ${spring.application.name}:${random.value}
 
 logging:
   level:
